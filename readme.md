@@ -41,9 +41,11 @@
 
 ## Installation
 Install with `pip`:
+
 ```bash
 #Python==3.8.5
-pip install -r requirements.txt
+conda env create -f environment.yaml
+conda activate mimicbrush
 pip install —upgrade transformers==4.29.0 # for Segment Anything (SAM)
 ```
 
