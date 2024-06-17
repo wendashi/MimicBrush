@@ -40,38 +40,16 @@
 
 
 ## Installation
-Install with `conda`: 
-```bash
-conda env create -f environment.yaml
-conda activate mimicbrush
-```
-or `pip`:
+Install with `pip`:
 ```bash
 #Python==3.8.5
 pip install -r requirements.txt
+pip install —upgrade transformers==4.29.0 # for Segment Anything (SAM)
 ```
 
 
 ## Download Checkpoints
-Download SD-1.5 and SD-1.5-inpainting checkpoint: 
-* You could download them from HuggingFace [stable-diffusion-v1-5](https://huggingface.co/runwayml/stable-diffusion-v1-5) and [stable-diffusion-inpainting](https://huggingface.co/runwayml/stable-diffusion-inpainting/)
-* However, the repo above contains many models that would not be used, we provide a clean version at [cleansd](https://modelscope.cn/models/xichen/cleansd/)
-
-Download MimicBrush checkpoint, along with a VAE, a CLIP encoder, and a depth model
-* Download the weights on ModelScope [xichen/MimicBrush](https://www.modelscope.cn/models/xichen/MimicBrush)
-* The model is big because it contains two U-Nets.
-
-You could use the following code to download them from modelscope
-
-```python
-from modelscope.hub.snapshot_download import snapshot_download as ms_snapshot_download
-
-sd_dir = ms_snapshot_download('xichen/cleansd', cache_dir='./modelscope')
-print('=== Pretrained SD weights downloaded ===')
-model_dir = ms_snapshot_download('xichen/MimicBrush', cache_dir='./modelscope')
-print('=== MimicBrush weights downloaded ===')
-```
-or from Huggingface
+Download SD-1.5 and SD-1.5-inpainting checkpoint from Huggingface:
 
 ```python
 from huggingface_hub import snapshot_download
